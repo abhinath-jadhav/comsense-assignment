@@ -30,7 +30,7 @@ public class CsvControllerTest {
 
     @Test
     void testUploadCSVFileSuccess() throws Exception {
-        // Load CSV file from resources
+
         ClassPathResource resource = new ClassPathResource("test-data.csv");
         MultipartFile file = new MockMultipartFile(
                 "file",
@@ -55,7 +55,7 @@ public class CsvControllerTest {
 
     @Test
     void testUploadCSVFileFailure() throws Exception {
-        // Load CSV file from resources
+
         ClassPathResource resource = new ClassPathResource("test-data.csv");
         MultipartFile file = new MockMultipartFile(
                 "file",

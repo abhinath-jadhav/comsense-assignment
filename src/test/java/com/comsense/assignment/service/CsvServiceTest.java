@@ -38,7 +38,7 @@ class CsvServiceTest {
 
     @Test
     void testProcessCsv() throws Exception {
-        // Load CSV file from resources
+
         ClassPathResource resource = new ClassPathResource("test-data.csv");
         MultipartFile file = new MockMultipartFile(
                 resource.getFilename(),

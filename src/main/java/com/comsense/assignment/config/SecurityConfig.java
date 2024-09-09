@@ -30,7 +30,6 @@ public class SecurityConfig {
     @Autowired CustomAuthenticationEntryPoint authenticationEntryPoint;
 
     @Bean
-    //authentication
     public UserDetailsService userDetailsService() {
         return new CustomUseDetailService();
     }
@@ -83,7 +82,7 @@ public class SecurityConfig {
     public WebSecurityCustomizer webSecurityCustomizer() {
         return (web) -> web
                 .ignoring()
-                .antMatchers("/h2-console/**"); // Allow access to H2 console without security
+                .antMatchers("/h2-console/**");
     }
 
 }
