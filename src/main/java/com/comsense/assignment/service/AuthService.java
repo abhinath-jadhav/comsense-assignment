@@ -1,9 +1,6 @@
 package com.comsense.assignment.service;
 
 import com.comsense.assignment.dto.*;
-import com.comsense.assignment.exceptions.JwtTokenIncorrectStructureException;
-import com.comsense.assignment.exceptions.JwtTokenMalformedException;
-import com.comsense.assignment.exceptions.JwtTokenMissingException;
 import com.comsense.assignment.models.User;
 import com.comsense.assignment.models.UserRole;
 import com.comsense.assignment.repository.RoleRepo;
@@ -71,8 +68,10 @@ public class AuthService {
     private User authenticate(String username, String password, String email) {
         Optional<User> user;
 
-        if (!StringUtils.isBlank(email.trim())) {
+        if (!StringUtils.isBlank(email)) {
             user = userRepo.findByEmail(email.trim().toLowerCase());
+        } else if (!StringUtils.isBlank(username)) {
+            user = userRepo.findByUsername(username.trim().toLowerCase());
         } else {
             throw new RuntimeException("Username or email is mandatory.");
         }
